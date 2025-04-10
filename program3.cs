@@ -20,81 +20,38 @@ class Program
     }
 }
 
-
-//2. C# Program to overload unary “-” Operator
-
+//2.	Program to find the sum of digits of a number
 using System;
-namespace Calculator
+class Program
 {
-    internal class Calculator
+    static void Main()
     {
-        public int number1, number2;
-        public Calculator(int num1, int num2)
+        int num, sum = 0;
+        Console.Write("Enter a number: ");
+        num = int.Parse(Console.ReadLine());
+        while (num != 0)
         {
-            number1 = num1;
-            number2 = num2;
+            sum += num % 10;
+            num /= 10;
         }
-        public static Calculator operator -(Calculator c1)
-        {
-            c1.number1 = -c1.number1;
-            c1.number2 = -c1.number2;
-            return c1;
-        }
-        public void print()
-        {
-            Console.WriteLine("number1= " + number1);
-            Console.WriteLine("number2= " + number2);
-
-        }
-        class program
-        {
-            static void Main(string[] args)
-            {
-                Calculator calc = new Calculator(-10, -25);
-                calc = -calc;
-                calc.print();
-            }
-        }
+        Console.WriteLine("Sum of digits = " + sum);
     }
 }
 
-//3. C# Program to Overload Binary Plus ʺ+ʺ Operator
+//3.Calculate the factorial of a given number
 
 using System;
-namespace overload
+public class Factorial
 {
-    class BinaryOverloading
+    public static void Main(string[] args)
     {
-        public int number1 = 0;
-        public BinaryOverloading() { }
-        public BinaryOverloading(int num1)
+        int i, fact = 1, number;
+        Console.Write("Enter any Number: ");
+        number = int.Parse(Console.ReadLine());
+        for (i = 1; i <= number; i++)
         {
-            number1 = num1;
-
+            fact = fact * i;
         }
-        public static BinaryOverloading operator +(BinaryOverloading c1, BinaryOverloading c2)
-        {
-            BinaryOverloading c3 = new BinaryOverloading(0);
-            c3.number1 = c1.number1 + c2.number1;
-            return c3;
-        }
-        public void print()
-        {
-            Console.WriteLine(number1);
-        }
-        class program
-        {
-            static void Main(string[] args)
-            {
-                BinaryOverloading c1 = new BinaryOverloading(250);
-                BinaryOverloading c2 = new BinaryOverloading(50);
-                BinaryOverloading c3 = new BinaryOverloading();
-                c3 = c1 + c2;
-                c1.print();
-                c2.print();
-                c3.print();
-            }
-        }
+        Console.Write("Factorial of " + number + " is: " + fact);
     }
 }
-
